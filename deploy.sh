@@ -1,3 +1,4 @@
+#!/bin/bash
 set -e
 
 echo "🚀 [Deploy] Memulai proses deploy..."
