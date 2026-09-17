@@ -1,0 +1,12 @@
+services:
+  landing-page:
+    build:
+      context: ./LandingPage
+      dockerfile: Dockerfile
+    container_name: landing_page_app
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8080}:80"
+    volumes:
+      # Mount folder agar perubahan HTML/CSS/JS langsung ter-update tanpa perlu rebuild container
+      - ./LandingPage:/usr/share/nginx/html:ro

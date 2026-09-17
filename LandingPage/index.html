@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undiksha KGEO KMUTT Colabs</title>
+    <meta name="description" content="Kolaborasi Internasional antara Undiksha, KGEO, dan KMUTT.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .header-blur {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .dark .header-blur {
+            background-color: rgba(17, 24, 39, 0.8);
+        }
+    </style>
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+
+</head>
+
+<body
+    class="bg-gradient-to-br from-gray-50 via-cyan-50 to-blue-100 
+    dark:from-gray-900 dark:via-blue-900 dark:to-cyan-800 text-gray-700 dark:bg-gray-900 dark:text-gray-300 font-sans antialiased transition-colors duration-300">
+
+    <header id="main-header" class="sticky top-0 z-50  dark:border-gray-800 relative ">
+        <nav class="container mx-auto px-6  flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <div class="flex">
+                    <img src="./assetsLanding/undiksha.png" alt="Universitas Pendidikan Ganesha"
+                        class="h-10  p-1 rounded-md">
+                    <img src="./assetsLanding/kmutt.png" alt="King Mongkut's University of Technology Thonburi"
+                        class="h-12">
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <ul class="hidden md:flex space-x-8 text-gray-800 dark:text-gray-300">
+                    <li><a href="#home"
+                            class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300">Home</a>
+                    </li>
+                    <li><a href="#about"
+                            class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300">About</a>
+                    </li>
+                    <li><a href="#activities"
+                            class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300">Activities</a>
+                    </li>
+                    <li><a href="#publications"
+                            class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300">Publications</a>
+                    </li>
+                    <li><a href="./documentation.html"
+                            class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300">Documentation</a>
+                    </li>
+                </ul>
+
+                <button id="theme-toggle" type="button"
+                    class="text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zM6.465 14.95l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414z">
+                        </path>
+                    </svg>
+                </button>
+
+                <button id="mobile-menu-button" class="md:hidden text-gray-800 dark:text-gray-300 p-2.5">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-800 shadow-lg">
+            <ul class="flex flex-col p-4 space-y-2">
+                <li><a href="#home"
+                        class="block py-2 px-3 text-gray-800 dark:text-gray-300 rounded hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
+                </li>
+                <li><a href="#vision"
+                        class="block py-2 px-3 text-gray-800 dark:text-gray-300 rounded hover:bg-gray-100 dark:hover:bg-gray-700">Vision</a>
+                </li>
+                <li><a href="#about"
+                        class="block py-2 px-3 text-gray-800 dark:text-gray-300 rounded hover:bg-gray-100 dark:hover:bg-gray-700">About</a>
+                </li>
+                <li><a href="#activities"
+                        class="block py-2 px-3 text-gray-800 dark:text-gray-300 rounded hover:bg-gray-100 dark:hover:bg-gray-700">Activities</a>
+                </li>
+                <li><a href="#publications"
+                        class="block py-2 px-3 text-gray-800 dark:text-gray-300 rounded hover:bg-gray-100 dark:hover:bg-gray-700">Publications</a>
+                </li>
+                <li><a href="./documentation.html"
+                        class="block py-2 px-3 text-gray-800 dark:text-gray-300 rounded hover:bg-gray-100 dark:hover:bg-gray-700">Documentation</a>
+                </li>
+            </ul>
+
+        </div>
+    </header>
+
+    <main>
+
+        <section id="home" class="min-h-screen flex items-center py-16 ">
+            <div class="container mx-auto px-6 flex gap-12 flex-col md:flex-row items-center">
+                <div class="text-center max-w-4xl mx-auto flex-2">
+
+                    <h2 class="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4">
+                        "Work by Heart,<br /> Learn with Open Mind"
+                    </h2>
+
+                    <div class="mt-24">
+                        <h2 class=" font-semibold text-gray-800 dark:text-white">Collaborators</h2>
+                        <div class=" flex justify-center items-center gap-4 md:gap-8  mb-8 rounded-lg  ">
+                            <a class="p-2" href="https://ftk.undiksha.ac.id" target="_blank">
+                                <img src="./assetsLanding/undiksha.png" class="h-12 w-auto mx-auto" loading="lazy"
+                                    alt="Faculty of Engineering and Vocational Universitas Pendidikan Ganesha">
+                            </a>
+                            <a class="p-2" href="https://science.kmutt.ac.th" target="_blank">
+                                <img src="./assetsLanding/kmutt.png" class="h-24 w-auto mx-auto" loading="lazy"
+                                    alt="Faculty of Science King Mongkut's University of Technology Thonburi">
+                            </a>
+                            <a class="p-2" href="https://kgeo.org" target="_blank">
+                                <img src="./assetsLanding/kgeo.png" class="h-24 w-auto mx-auto" loading="lazy"
+                                    alt="KMUTT Geospatial Engineering and Innovation Center">
+                            </a>
+                            <a class="p-2" href="https://trpl.undiksha.ac.id" target="_blank">
+                                <img src="./assetsLanding/trpl.png" class="h-12 w-auto mx-auto" loading="lazy"
+                                    alt="Applied Bachelor in Software Engineering Technology Study Program">
+                            </a>
+                            <a class="p-2" href="https://cs.undiksha.ac.id" target="_blank">
+                                <img src="./assetsLanding/ilkom.png" class="h-12 w-auto mx-auto" loading="lazy"
+                                    alt="Bachelor of Computer Science Study Program">
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="#vision"
+                        class="bg-cyan-500 text-white font-bold py-3 px-8 rounded-full hover:bg-cyan-600 transition-colors duration-300 text-lg">
+                        Our Vision
+                    </a>
+                </div>
+                <div class="text-center flex-1 hidden md:block px-6">
+                    <img src="./assetsLanding/twinbluemarble.png" alt="Collaboration Illustration" loading="lazy"
+                        width="" height="" class="w-full h-auto max-w-lg mx-auto">
+                </div>
+            </div>
+        </section>
+
+        <section id="vision" class="py-20 bg-white dark:bg-gray-800 relative overflow-hidden">
+            <div class="container mx-auto px-6 z-10 relative">
+
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Our Vision</h2>
+                </div>
+                <div class="w-full max-w-xs sm:max-w-sm md:max-w-md text-center mx-auto ">
+                    <img src="./assetsLanding/water-cycle-animate.svg" alt="Vision Illustration" loading="lazy" width=""
+                        height="" class="w-auto h-full mb-6">
+                </div>
+                <div
+                    class="shadow-gray-600  mx-auto rounded-xl w-full text-gray-700 font-light dark:text-gray-300 text-2xl leading-relaxed text-center">
+                    <b class="text-5xl">"</b>To foster a sustainable international collaboration that encourages
+                    cross-disciplinary innovation and advances knowledge, with the aim of developing excellent human
+                    resources<br /> and contributing meaningfully to the global community.
+                </div>
+            </div>
+        </section>
+
+
+        <section id="about" class="py-20 bg-gray-50 dark:bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="flex-shrink-0 w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80">
+                        <img src="./assetsLanding/climate.png" alt="Foto Kolaborasi"
+                            class="w-full h-full object-cover rounded-lg shadow-2xl mx-auto">
+                    </div>
+                    <div class="flex-grow max-w-3xl">
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">About</h2>
+                        <p class="mb-4 text-gray-700 dark:text-gray-300">
+                            The collaboration between KGEO, KMUTT (Thailand) and Universitas Pendidikan Ganesha
+                            (Indonesia) was founded on a shared vision to create an open space for learning, research,
+                            and innovation. With an MoU already established and a MoA to be signed in 2025, this
+                            partnership stands as an international bridge focused on computer science, software
+                            engineering, geospatial technology, and digital innovation
+                        </p>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            <b>Our mission is clear: </b>To generate academic and technological breakthroughs, provide
+                            meaningful experiences for students and lecturers, and deliver real benefits to society.
+                            From joint publications and academic events to research engaging local governments, this
+                            collaboration continues to grow as an inclusive platform for fresh ideas.
+                            </br></br>
+                        </p>
+                        <p>
+                            We warmly welcome students, researchers, and partners to join us, because innovation knows
+                            no boundaries, and collaboration makes it possible.
+                        </p>
+                        <button
+                            class="mt-4 px-6 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300">Our
+                            Initiatives</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container mx-auto px-6">
+                <hr class="my-16 border-gray-200 dark:border-gray-700 mx-24">
+                </hr>
+                <div class="flex flex-col md:flex-row gap-12 items-center mt-16">
+                    <div
+                        class="flex-1 text-top border-gray-100 dark:border-gray-700 pr-6 shadow-lg p-6 rounded-lg bg-white dark:bg-gray-800 border">
+                        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Focus Field</h2>
+                        <p class="mb-4 text-gray-700 dark:text-gray-300">
+                        <ul class="list-disc list-inside ml-4">
+                            <li>Geospatial Studies (Water Management, Climate Change)</li>
+                            <li>Artificial Intelligence</li>
+                            <li>Data Science</li>
+                            <li>Software Engineering</li>
+                            <li>Web-GIS</li>
+                            <li>IoT</li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div
+                        class="flex-1 text-top border-gray-100 dark:border-gray-700 pr-6 shadow-lg p-6 rounded-lg bg-white dark:bg-gray-800 border">
+                        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Partners</h2>
+                        <p class="text-gray-700 dark:text-gray-300">
+                        <ul class="list-disc list-inside ml-4">
+                            Faculty of Engineering and Vocational (Undiksha, Indonesia)
+                            <li><a href="https://trpl.undiksha.ac.id" class="hover:text-cyan-500"
+                                    target="_blank">Applied Bachelor in Software Engineering Technology Study
+                                    Program</a></li>
+                            <li><a href="https://cs.undiksha.ac.id" class="hover:text-cyan-500" target="_blank">Bachelor
+                                    of Computer Science Study Program</a></li>
+                        </ul>
+                        <ul class="list-disc list-inside ml-4 mt-4">
+                            Faculty of Science (KMUTT, Thailand)
+                            <li><a href="https://kgeo.org" class="hover:text-cyan-500" target="_blank">KGEO (KMUTT,
+                                    Thailand)</a></li>
+                        </ul>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+        <section id="activities" class="relative py-20 bg-cover bg-center"
+            style="background-image: url('./assetsLanding/bg.png');">
+            <div class="absolute inset-0 bg-gray-900 opacity-75"></div>
+            <div class="container relative mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-white dark:text-white">Our Journey & Activities</h2>
+                    <p class="text-white dark:text-gray-400 mt-2">Key milestones in our collaborative journey</p>
+                </div>
+                <div class="h-48"></div>
+
+                <div class="relative wrap  p-10 h-full">
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 h-full border-2 border-cyan-500/30 rounded-full md:hidden">
+                    </div>
+                    <div
+                        class="absolute top-1/2 -translate-y-1/2 w-full h-2 bg-cyan-500/30 rounded-full hidden md:block">
+                    </div>
+
+                    <div class="flex flex-col md:flex-row justify-between items-center w-full">
+
+                        <div class="w-full md:w-1/5 mb-8 md:mb-0 relative">
+                            <div
+                                class="absolute md:relative z-10 w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center text-white font-bold left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0">
+                                1</div>
+                            <div
+                                class="mt-12 md:mt-0 md:absolute md:bottom-12 p-4 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg w-full">
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white">2018</h3>
+                                <p class="font-semibold text-cyan-600 dark:text-cyan-400 mt-1">Sign MoU</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Formalized the collaboration
+                                    between Undiksha, Indonesia, and KMUTT, Thailand</p>
+                            </div>
+                        </div>
+
+                        <div class="w-full md:w-1/5 mb-8 md:mb-0 relative">
+                            <div
+                                class="absolute md:relative z-10 w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center text-white font-bold left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0">
+                                2</div>
+                            <div
+                                class="mt-12 md:mt-0 md:absolute md:top-12 p-4 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg w-full">
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white">2019</h3>
+                                <p class="font-semibold text-cyan-600 dark:text-cyan-400 mt-1">Events and Workshop</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Attending events/workshop, such
+                                    as Remote Sensing of
+                                    Land-Use/Cover
+                                    Change and Climate
+                                    Impacts in Coastal
+                                    Zone” in Phuket,
+                                    Thailand
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="w-full md:w-1/5 mb-8 md:mb-0 relative">
+                            <div
+                                class="absolute md:relative z-10 w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center text-white font-bold left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0">
+                                3</div>
+                            <div
+                                class="mt-12 md:mt-0 md:absolute md:bottom-12 p-4 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg w-full">
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white">2023</h3>
+                                <p class="font-semibold text-cyan-600 dark:text-cyan-400 mt-1">Research Collaboration
+                                </p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Research funded (Univ.),
+                                    Student internships, Presentation in Conferences, Prototype, Bachelor Thesis,
+                                    Academic Activities, MoU (ext.)</p>
+                            </div>
+                        </div>
+
+                        <div class="w-full md:w-1/5 relative">
+                            <div
+                                class="absolute md:relative z-10 w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center text-white font-bold left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0">
+                                4</div>
+                            <div
+                                class="mt-12 md:mt-0 md:absolute md:top-12 p-4 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg w-full">
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white">2024</h3>
+                                <p class="font-semibold text-cyan-600 dark:text-cyan-400 mt-1">Research Collab #2</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Research funded (Univ. and
+                                    Govt.), Student Internship, Publications (Conference), Guest Lecture, Bachelor
+                                    Thesis & Projects, other Academic Activities</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/5 mb-8 md:mb-0 relative">
+                            <div
+                                class="absolute md:relative z-10 w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center text-white font-bold left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0">
+                                5</div>
+                            <div
+                                class="mt-12 md:mt-0 md:absolute md:bottom-12 p-4 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg w-full">
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white">2025</h3>
+                                <p class="font-semibold text-cyan-600 dark:text-cyan-400 mt-1">Research Collab #3</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Research funded (Univ.),
+                                    Students Internship, Publications (conference and journals), Guest Lecture, MoA
+                                    between Faculties</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container relative mx-auto px-6 mt-56 text-center">
+                <a href="./documentation.html"
+                    class="mt-4 px-6 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300">See
+                    Our Activities</a>
+            </div>
+        </section>
+        <section id="publications" class="py-20 bg-gray-50 dark:bg-gray-900">
+            <div class="text-center mb-12 container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Publications & Products</h2>
+                <p class="text-gray-600 dark:text-gray-400 mt-2">Papers, articles, or journals that we have
+                    published</p>
+            </div>
+            <div class="container mx-auto px-6 flex gap-6 lg:flex-row md:flex-row flex-col">
+                <div class="flex-1 max-w-3xl mx-auto space-y-8">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-xl font-bold text-cyan-600 dark:text-cyan-400">Abstract Presentation
+                        </h3>
+
+                        <p
+                            class="text-gray-500 dark:text-white mt-1 mb-3 border-b border-gray-200 dark:border-gray-700">
+                            K.H. Sudana, L.J.E Dewi, K. Setemen, P. Varnakovida, K.Y.E. Aryanto, 2024, Machine
+                            Learning-Based Analysis of Rice Crop Phenology in Satellite Imagery, ICMLSC 2024 Singapore
+                            [Abstract]. Achievement: Best Presenter
+                        </p>
+                        <p
+                            class="text-gray-500 dark:text-white mt-1 mb-3 border-b border-gray-200 dark:border-gray-700">
+                            L.J.E. Dewi, K.Y.E. Aryanto, G. Indrawan, K.A. Seputra, P. Varnakovida, 2024, Crop
+                            Classification Model using Convolutional Neural Network Algorithm, ICMLSC 2024 Singapore
+                            [Abstract]
+                        </p>
+                        <p
+                            class="text-gray-500 dark:text-white mt-1 mb-3 border-b border-gray-200 dark:border-gray-700">
+                            K.P.G.M. Dinata, L.J.E. Dewi, P. Varnakovida, K.Y.E. Aryanto, 2024, A Comparative Analysis
+                            of Machine Learning Algorithms for Land Use and Land Cover Classification in Chachoengsao
+                            Province, Thailand, ICMLSC 2024 Singapore [Abstract]
+                        </p>
+                        <p
+                            class="text-gray-500 dark:text-white mt-1 mb-3 border-b border-gray-200 dark:border-gray-700">
+                            K.L. Prawira, K.Y.E. Aryanto, P. Varnakovida, 2024, Analysis of object-based land use and
+                            land cover classification with SNIC and G-means algorithms, 9th International Conference on
+                            Sustainable Energy and Environment (SEE 2024), Bangkok [Abstract]
+                        </p>
+                        <p
+                            class="text-gray-500 dark:text-white mt-1 mb-3 border-b border-gray-200 dark:border-gray-700">
+                            N.P.K. Dewi, P. Varnakovida, K.Y.E. Aryanto, N. Yensakunsuk, 2024, River area segmentation
+                            using Sentinel-1 SAR imagery with deep learning approach, 9th International Conference on
+                            Sustainable Energy and Environment (SEE 2024), Bangkok [Abstract]
+                        </p>
+                        <p
+                            class="text-gray-500 dark:text-white mt-1 mb-3 border-b border-gray-200 dark:border-gray-700">
+                            M. Damayanti, N. Yensakunsuk, K.Y.E. Aryanto, P. Varnakovida, 2024, Forecasting SPI and SPEI
+                            drought indices using climate data and long short-term memory neural networks, 9th
+                            International Conference on Sustainable Energy and Environment (SEE 2024), Bangkok
+                            [Abstract]
+                        </p>
+                    </div>
+                </div>
+                <div class="flex-1 max-w-3xl mx-auto space-y-8">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-xl font-bold text-cyan-600 dark:text-cyan-400">Proceedings & Journals
+                        </h3>
+                        <p
+                            class="text-gray-500 dark:text-white mt-1 mb-3 border-b border-gray-200 dark:border-gray-700">
+                            F. B. Pasaribu, L. J. E. Dewi, K. Y. E. Aryanto, K. A. Seputra, P. Varnakovida and N. K.
+                            Kertiasih, "Generating synthetic data on agricultural crops with DCGAN," 2024 11th
+                            International Conference on Advanced Informatics: Concept, Theory and Application
+                            (ICAICTA), Singapore, 2024, pp. 1-6, doi: 10.1109/ICAICTA63815.2024.10763158.
+                        </p>
+                        <p
+                            class="text-gray-500 dark:text-white mt-1 mb-3 border-b border-gray-200 dark:border-gray-700">
+                            F.B. Pasaribu, L.J.E. Dewi, K.Y.E. Aryanto, P. Varnakovida, 2025, Effect of Synthetic Data
+                            Augmentation on Plant Classification Accuracy Using MobileNetV2, EfficientNet-B0, and
+                            ResNet-18, IEEE 5th International Conference on Software Engineering and Artificial
+                            Intelligence (SEAI), China. https://doi.org/10.1109/SEAI65851.2025.11108883 [Proceeding]
+                        </p>
+                        <p
+                            class="text-gray-500 dark:text-white mt-1 mb-3 border-b border-gray-200 dark:border-gray-700">
+                            Dewi, N. P. K., Suputra, P. H. ., Paramartha, A. G. Y. ., Dewi, L. J. E. ., Varnakovida, P.
+                            ., & Aryanto, K. Y. E., 2025, River Area Segmentation Using Sentinel-1 SAR Imagery with
+                            Deep-Learning Approach. Geomatics and Environmental Engineering, 19(4), 39–63.
+                            https://doi.org/10.7494/geom.2025.19.4.39
+                        </p>
+                        <p
+                            class="text-gray-500 dark:text-white mt-1 mb-3 border-b border-gray-200 dark:border-gray-700">
+                            P. Ony Andewi, K. A. Seputra, K. Y. E. Aryanto, and L. J. E. Dewi, “Integrasi Teknologi
+                            Penginderaan Jauh Dan Machine Learning Pada Web GIS Untuk Pemetaan Potensi Banjir”
+                            (Integration of Remote Sensing and Machine Learning Technology in Web GIS for Flood
+                            Potential Mapping), Jurnal Pendidikan Teknologi dan Kejuruan, vol. 22, no. 1, pp. 12–23,
+                            Jan. 2025, doi: 10.23887/jptkundiksha.v22i1.87455.
+                        </p>
+
+                        <p
+                            class="text-gray-500 dark:text-white mt-1 mb-3 border-b border-gray-200 dark:border-gray-700">
+                            N.P.N. Nathalia, G.A.R. Wijaya, K.Y.E. Aryanto, N.P.N.P. Dewi, P.H. Saputra, N.P.K. Dewi, M.
+                            Damayanti, K.L. Prawira, 2025, International Journal of Applied Sciences and Smart
+                            Technologies (IJASST), vol 7(1), pp. 145-158, https://doi.org/10.24071/ijasst.v7i1.11608</p>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="container mx-auto mt-12 text-center  px-6">
+                <div class="flex bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <img src="./assetsLanding/sipetani.jpg" alt="WEF GIS" class="w-full h-auto mb-4 flex-1">
+                    <div class="flex-1 mt-10">
+
+                        <h3 class="text-xl font-bold text-cyan-600 dark:text-cyan-400">Related Project</h3>
+                        <p class="text-gray-500 dark:text-white mt-1 mb-3">Here are some related prototypes in the field
+                            of environmental and climate change</p>
+                        <hr class="my-8 mx-10 border-gray-200 dark:border-gray-700">
+                        <a href="https://app.wefgis.com" target="_blank"
+                            class="mt-4 px-6 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300">WEF
+                            GIS</a>
+                        <a href="https://sipetani.bulelengkab.go.id" target="_blank"
+                            class="mt-4 px-6 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300">SIPETANI</a>
+                        <a href="https://fmews.wefgis.com/map" target="_blank"
+                            class="mt-4 px-6 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300">on
+                            Going FLood Mapping</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="relative bg-gray-900 bg-cover bg-center text-gray-300"
+        style="background-image: url('https://www.transparenttextures.com/patterns/world-map.png');">
+        <div class="absolute inset-0 bg-black opacity-70"></div>
+
+        <div class="container mx-auto px-6 py-10 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between gap-10">
+
+                <div class="w-full md:w-1/2 lg:w-1/3">
+                    <h3 class="text-2xl font-bold text-white">Undiksha x KMUTT</h3>
+                    <p class="mt-2 text-gray-400">
+                        A sustainable international collaboration fostering innovation in technology and education to
+                        empower the global community.
+                    </p>
+                    <div class="flex items-center gap-4 mt-6">
+                        <img src="./assetsLanding/undiksha.png" alt="Undiksha Logo" class="h-24  p-1 rounded-md">
+                        <img src="./assetsLanding/kmutt.png" alt="KMUTT Logo" class="h-24  p-1 rounded-md">
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 lg:w-1/3">
+                    <h3 class="text-xl font-semibold text-white">Contact Us</h3>
+                    <div class="mt-4 space-y-4">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 flex-shrink-0 mt-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <div>
+                                <p class="font-medium">Universitas Pendidikan Ganesha</p>
+                                <p class="text-sm text-gray-400">Singaraja, Bali, Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 flex-shrink-0 mt-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <div>
+                                <p class="font-medium">King Mongkut's University of Technology Thonburi</p>
+                                <p class="text-sm text-gray-400">Bangkok, Thailand</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <p>
+                            <ul>
+                                <li><a href="mailto:pariwate@gmail.com">Pariwate Varnakovida</a></li>
+                                <li><a href="mailto:saputra.wahyu@undiksha.ac.id">I Nyoman Saputra Wahyu Wijaya</a></li>
+                                <li><a href="mailto:agus.seputra@undiksha.ac.id">Ketut Agus Seputra</a></li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="my-8 border-gray-700">
+            <div class="text-center text-gray-400">
+                <p>&copy; 2025 Undiksha x KGEO KMUTT Collaboration. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // === Light/Dark Mode Toggle ===
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        const updateIcon = () => {
+            if (document.documentElement.classList.contains('dark')) {
+                themeToggleDarkIcon.classList.remove('hidden');
+                themeToggleLightIcon.classList.add('hidden');
+            } else {
+                themeToggleDarkIcon.classList.add('hidden');
+                themeToggleLightIcon.classList.remove('hidden');
+            }
+        };
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+            updateIcon();
+        });
+
+        updateIcon();
+
+        // ===== BARU: Logika untuk Navigasi Mobile =====
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+
+        // Toggle menu saat tombol hamburger diklik
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tutup menu saat salah satu link di menu mobile diklik
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        const header = document.getElementById('main-header');
+        function handleHeaderBlur() {
+            if (window.scrollY > 10) {
+                header.classList.add('header-blur');
+                header.classList.add('border-b');
+                header.classList.add('border-gray-200');
+            } else {
+                header.classList.remove('header-blur');
+                header.classList.remove('border-b');
+                header.classList.remove('border-gray-200');
+            }
+        }
+        window.addEventListener('scroll', handleHeaderBlur);
+        // Run on load in case page is not at top
+        handleHeaderBlur();
+
+    </script>
+
+</body>
+
+</html>

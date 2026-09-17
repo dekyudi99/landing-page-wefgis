@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Undiksha KGEO Colabs</title>
+    <meta name="description" content="Kolaborasi Internasional antara Undiksha, KGEO, dan KMUTT.">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .header-blur {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .dark .header-blur {
+            background-color: rgba(17, 24, 39, 0.8);
+        }
+    </style>
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+
+</head>
+
+<body
+    class="bg-gradient-to-br from-gray-50 via-cyan-50 to-blue-100 
+    dark:from-gray-900 dark:via-blue-900 dark:to-cyan-800 text-gray-700 dark:bg-gray-900 dark:text-gray-300 font-sans antialiased transition-colors duration-300">
+
+    <header id="main-header" class="sticky top-0 z-50  dark:border-gray-800 relative ">
+        <nav class="container mx-auto px-6  flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <div class="flex">
+                    <img src="./assetsLanding/undiksha.png" alt="Undiksha Logo" class="h-10  p-1 rounded-md">
+                    <img src="./assetsLanding/kmutt.png" alt="KMUTT Logo" class="h-12">
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <ul class="hidden md:flex space-x-8 text-gray-800 dark:text-gray-300">
+                    <li><a href="./index.html#home "
+                            class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300">Home</a>
+                    </li>
+                    <li><a href="./index.html#about"
+                            class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300">About</a>
+                    </li>
+                    <li><a href="./index.html#activities"
+                            class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300">Activities</a>
+                    </li>
+                    <li><a href="./index.html#publications"
+                            class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300">Publications</a>
+                    </li>
+                    <li><a href="./documentation.html"
+                            class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300">Documentation</a>
+                    </li>
+                </ul>
+
+                <button id="theme-toggle" type="button"
+                    class="text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg text-sm p-2.5">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zM6.465 14.95l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414z">
+                        </path>
+                    </svg>
+                </button>
+
+                <button id="mobile-menu-button" class="md:hidden text-gray-800 dark:text-gray-300 p-2.5">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-800 shadow-lg">
+            <ul class="flex flex-col p-4 space-y-2">
+                <li><a href="./index.html#home"
+                        class="block py-2 px-3 text-gray-800 dark:text-gray-300 rounded hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
+                </li>
+                <li><a href="./index.html#vision"
+                        class="block py-2 px-3 text-gray-800 dark:text-gray-300 rounded hover:bg-gray-100 dark:hover:bg-gray-700">Vision</a>
+                </li>
+                <li><a href="./index.html#about"
+                        class="block py-2 px-3 text-gray-800 dark:text-gray-300 rounded hover:bg-gray-100 dark:hover:bg-gray-700">About</a>
+                </li>
+                <li><a href="./index.html#activities"
+                        class="block py-2 px-3 text-gray-800 dark:text-gray-300 rounded hover:bg-gray-100 dark:hover:bg-gray-700">Activities</a>
+                </li>
+                <li><a href="./index.html#publications"
+                        class="block py-2 px-3 text-gray-800 dark:text-gray-300 rounded hover:bg-gray-100 dark:hover:bg-gray-700">Publications</a>
+                </li>
+
+                <li><a href="./documentation.html"
+                            class="block py-2 px-3 text-gray-800 dark:text-gray-300 rounded hover:bg-gray-100 dark:hover:bg-gray-700">Documentation</a>
+                    </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section id="activities" class="min-h-screen flex items-center py-16  py-16 md:py-24 bg-gray-50/50 dark:bg-gray-900/50">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">
+                Our Collaborative Activities
+            </h2>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                Fostering academic excellence and cultural exchange through a variety of joint initiatives between Undiksha and KMUTT.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border border-transparent hover:shadow-cyan-500/20 dark:hover:shadow-cyan-400/20">
+                <div class="p-8">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-cyan-100 dark:bg-cyan-900/50 mb-6 group-hover:bg-cyan-200 dark:group-hover:bg-cyan-800 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Joint Research</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-base">
+                        Collaborating on cutting-edge research in Geographic Information Systems (GIS), remote sensing, and environmental technology.
+                    </p>
+                </div>
+            </div>
+
+            <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border border-transparent hover:shadow-cyan-500/20 dark:hover:shadow-cyan-400/20">
+                <div class="p-8">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-cyan-100 dark:bg-cyan-900/50 mb-6 group-hover:bg-cyan-200 dark:group-hover:bg-cyan-800 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Student & Staff Exchange</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-base">
+                        Providing immersive international experiences to broaden academic, professional, and cultural horizons for students and lecturers.
+                    </p>
+                </div>
+            </div>
+
+            <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border border-transparent hover:shadow-cyan-500/20 dark:hover:shadow-cyan-400/20">
+                <div class="p-8">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-cyan-100 dark:bg-cyan-900/50 mb-6 group-hover:bg-cyan-200 dark:group-hover:bg-cyan-800 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Guest Lectures & Webinars</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-base">
+                        Sharing expertise and the latest findings through joint online seminars and guest lectures from prominent professors.
+                    </p>
+                </div>
+            </div>
+
+            <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border border-transparent hover:shadow-cyan-500/20 dark:hover:shadow-cyan-400/20">
+                <div class="p-8">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-cyan-100 dark:bg-cyan-900/50 mb-6 group-hover:bg-cyan-200 dark:group-hover:bg-cyan-800 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Publication Workshops</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-base">
+                        Conducting workshops to enhance academic writing skills and boost publications in reputable international journals.
+                    </p>
+                </div>
+            </div>
+
+            <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border border-transparent hover:shadow-cyan-500/20 dark:hover:shadow-cyan-400/20">
+                <div class="p-8">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-cyan-100 dark:bg-cyan-900/50 mb-6 group-hover:bg-cyan-200 dark:group-hover:bg-cyan-800 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9m-9 9a9 9 0 00-9-9"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">International Conference</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-base">
+                        Co-hosting international conferences to disseminate research results and build a global network of scholars and experts.
+                    </p>
+                </div>
+            </div>
+
+            <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 border border-transparent hover:shadow-cyan-500/20 dark:hover:shadow-cyan-400/20">
+                <div class="p-8">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-cyan-100 dark:bg-cyan-900/50 mb-6 group-hover:bg-cyan-200 dark:group-hover:bg-cyan-800 transition-colors duration-300">
+                        <svg class="w-8 h-8 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h10a2 2 0 002-2v-1a2 2 0 012-2h1.945M7.707 4.293l1.414-1.414a1 1 0 011.414 0l1.414 1.414M2.25 12h19.5M12 4.5v15"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Cultural Immersion</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-base">
+                        Organizing programs that allow participants to experience and understand the rich cultures of Indonesia and Thailand firsthand.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section id="activities" class="py-16 md:py-24 bg-gray-50 dark:bg-gray-900/50">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">
+                Our Collaborative Activities in Photos
+            </h2>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                Capturing moments of innovation, learning, and cultural exchange.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 masonry-grid">
+
+            <div class="relative group aspect-[3/2] sm:aspect-square md:aspect-[4/3] overflow-hidden rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <img src="./assetsLanding/photo/kgeo2023-2.jpg" alt="First-sign" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p class="text-white text-sm font-semibold">First Sign</p>
+                </div>
+            </div>
+
+            <div class="relative group aspect-[2/3] sm:aspect-[3/4] overflow-hidden rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <img src="./assetsLanding/photo/kgeo2023.jpg" alt="Discussion with the community" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p class="text-white text-sm font-semibold">Discussion about Water Management</p>
+                </div>
+            </div>
+
+            <div class="relative group aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <img src="./assetsLanding/photo/kgeo2023-1.jpg" alt="Guest Lecture Session" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p class="text-white text-sm font-semibold">Outdoor activities in Water Management Field Trip</p>
+                </div>
+            </div>
+
+            <div class="relative group aspect-[3/2] overflow-hidden rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <img src="./assetsLanding/photo/kgeo2024.jpg" alt="second Batch" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p class="text-white text-sm font-semibold">Second Batch of Students Exchange Program</p>
+                </div>
+            </div>
+
+            <div class="relative group aspect-[2/3] md:aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <img src="./assetsLanding/photo/kgeo20241.jpg" alt="International Conference" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p class="text-white text-sm font-semibold">International Conference</p>
+                </div>
+            </div>
+
+            <div class="relative group aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <img src="./assetsLanding/photo/kgeo20242.jpg" alt="KMUTT Business Plan Competition" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p class="text-white text-sm font-semibold">KMUTT Business Plan Competition</p>
+                </div>
+            </div>
+
+            <div class="relative group aspect-[4/2] col-span-2 overflow-hidden rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <img src="./assetsLanding/photo/2023-3.jpg" alt="Field Trip" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p class="text-white text-sm font-semibold">Field Trip</p>
+                </div>
+            </div>
+
+            <div class="relative group aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <img src="./assetsLanding/photo/kgeo2025.jpg" alt="2025 Field Trip" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p class="text-white text-sm font-semibold">2025 Field Trip to Nakhon Pathom</p>
+                </div>
+            </div>
+
+            <div class="relative group aspect-[2/3] sm:aspect-[3/4] overflow-hidden rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <img src="./assetsLanding/photo/kgeo20252.jpg" alt="Field Trip" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p class="text-white text-sm font-semibold">Field Trip</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    </main>
+
+    <footer class="relative bg-gray-900 bg-cover bg-center text-gray-300"
+        style="background-image: url('https://www.transparenttextures.com/patterns/world-map.png');">
+        <div class="absolute inset-0 bg-black opacity-70"></div>
+
+        <div class="container mx-auto px-6 py-10 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between gap-10">
+
+                <div class="w-full md:w-1/2 lg:w-1/3">
+                    <h3 class="text-2xl font-bold text-white">Undiksha x KMUTT</h3>
+                    <p class="mt-2 text-gray-400">
+                        A sustainable international collaboration fostering innovation in technology and education to
+                        empower the global community.
+                    </p>
+                    <div class="flex items-center gap-4 mt-6">
+                        <img src="./assetsLanding/undiksha.png" alt="Undiksha Logo" class="h-24  p-1 rounded-md">
+                        <img src="./assetsLanding/kmutt.png" alt="KMUTT Logo" class="h-24  p-1 rounded-md">
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 lg:w-1/3">
+                    <h3 class="text-xl font-semibold text-white">Contact Us</h3>
+                    <div class="mt-4 space-y-4">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 flex-shrink-0 mt-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <div>
+                                <p class="font-medium">Universitas Pendidikan Ganesha</p>
+                                <p class="text-sm text-gray-400">Singaraja, Bali, Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 flex-shrink-0 mt-1" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <div>
+                                <p class="font-medium">King Mongkut's University of Technology Thonburi</p>
+                                <p class="text-sm text-gray-400">Bangkok, Thailand</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <p>
+                            <ul>
+                                <li><a href="mailto:pariwate@gmail.com">Pariwate Varnakovida</a></li>
+                                <li><a href="mailto:saputra.wahyu@undiksha.ac.id">I Nyoman Saputra Wahyu Wijaya</a></li>
+                                <li><a href="mailto:agus.seputra@undiksha.ac.id">Ketut Agus Seputra</a></li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="my-8 border-gray-700">
+            <div class="text-center text-gray-400">
+                <p>&copy; 2025 Undiksha x KGEO KMUTT Collaboration. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // === Light/Dark Mode Toggle ===
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        const updateIcon = () => {
+            if (document.documentElement.classList.contains('dark')) {
+                themeToggleDarkIcon.classList.remove('hidden');
+                themeToggleLightIcon.classList.add('hidden');
+            } else {
+                themeToggleDarkIcon.classList.add('hidden');
+                themeToggleLightIcon.classList.remove('hidden');
+            }
+        };
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+            updateIcon();
+        });
+
+        updateIcon();
+
+        // ===== BARU: Logika untuk Navigasi Mobile =====
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+
+        // Toggle menu saat tombol hamburger diklik
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tutup menu saat salah satu link di menu mobile diklik
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        const header = document.getElementById('main-header');
+        function handleHeaderBlur() {
+            if (window.scrollY > 10) {
+                header.classList.add('header-blur');
+                header.classList.add('border-b');
+                header.classList.add('border-gray-200');
+            } else {
+                header.classList.remove('header-blur');
+                header.classList.remove('border-b');
+                header.classList.remove('border-gray-200');
+            }
+        }
+        window.addEventListener('scroll', handleHeaderBlur);
+        // Run on load in case page is not at top
+        handleHeaderBlur();
+
+    </script>
+
+</body>
+
+</html>
